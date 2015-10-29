@@ -6,7 +6,8 @@ class DashboardController extends Controller {
 	
 	public function index()
 	{
-		return view('dashboard::index');
+        $widgets = app('app.widgets');
+		return view('dashboard::index')->with('widgets', $widgets->getWidgets('demo'));
 	}
 	
 }

@@ -1,5 +1,6 @@
 <?php
 
 return [
-	'name' => 'Dashboard'
+	'name' => 'Dashboard',
+    'demoDashboard' => true
 ];
