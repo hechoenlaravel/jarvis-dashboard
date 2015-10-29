@@ -31,10 +31,15 @@ class Widgets {
         }
     }
 
+    /**
+     * Display a group of widgets
+     * @param string $group
+     * @return string
+     */
     public function getWidgets($group = 'demo')
     {
         $collection = new Collection($this->widgets);
-        $widgets = $collection->where('group', $group);
+        $widgets = $collection->where('group', $group)->sortBy('order');
         $output = "";
         foreach($widgets as $widget)
         {
