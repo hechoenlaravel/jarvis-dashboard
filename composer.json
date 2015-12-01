@@ -3,6 +3,7 @@
     "description": "Deashboard module for Jarvis Platform",
     "keywords": ["JarvisApp", "Laravel Framework", "Business Application Platform", "BAP"],
     "license" : "MIT",
+    "type": "jarvis-platform-module",
 	"authors": [
 		{
 			"name": "Jose Fonseca",
