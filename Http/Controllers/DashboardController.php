@@ -1,13 +1,19 @@
 <?php namespace Modules\Dashboard\Http\Controllers;
 
-use Pingpong\Modules\Routing\Controller;
+use Nwidart\Modules\Routing\Controller;
 
+/**
+ * Class DashboardController
+ * @package Modules\Dashboard\Http\Controllers
+ */
 class DashboardController extends Controller {
-	
-	public function index()
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index()
 	{
-        $widgets = app('app.widgets');
-		return view('dashboard::index')->with('widgets', $widgets->getWidgets('demo'));
+		return view('dashboard::index');
 	}
 	
 }

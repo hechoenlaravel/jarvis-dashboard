@@ -1,7 +1,8 @@
-<?php namespace Modules\Dashboard\Providers;
+<?php
 
-use Auth;
-use MenuPing;
+namespace Modules\Dashboard\Providers;
+
+use Spatie\Menu\Laravel\Html;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -41,7 +42,6 @@ class DashboardServiceProvider extends ServiceProvider
         $this->commands([
             \Modules\Dashboard\Console\InstallDashboard::class
         ]);
-        $this->registerWidgets();
     }
 
     /**
@@ -94,30 +94,14 @@ class DashboardServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services provided by the provider.
      *
-     * @return array
      */
-    public function provides()
-    {
-        return array();
-    }
-
-    /**
-     * Bind the Registrar class for the widgets
-     */
-    public function registerWidgets()
-    {
-        $this->app->singleton('app.widgets', 'Modules\Dashboard\Repositories\Widgets');
-    }
-
     public function registerMenu()
     {
-        if (config('dashboard.demoDashboard')) {
-            $menu = MenuPing::instance('sidebar');
-            $menu->route('dashboard.demo', 'Dashboard', [], 1, ['icon' => 'fa fa-dashboard'])->hideWhen(function () {
-                return Auth::guest();
-            });
+        if(config('dashboard.demoDashboard')) {
+            $menu = app('menu.sidebar');
+            $menu->add(Html::raw('<li class="header">DASHBOARD</li>'));
+            $menu->link('/dashboard/demo', 'Demo')->setActive('/dashboard/demo');
         }
     }
 
