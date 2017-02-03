@@ -1,5 +1,6 @@
 <?php namespace Modules\Dashboard\Http\Controllers;
 
+use Illuminate\Contracts\Auth\Access\Gate;
 use Nwidart\Modules\Routing\Controller;
 
 /**

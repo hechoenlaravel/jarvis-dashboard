@@ -98,11 +98,7 @@ class DashboardServiceProvider extends ServiceProvider
      */
     public function registerMenu()
     {
-        if(config('dashboard.demoDashboard')) {
-            $menu = app('menu.sidebar');
-            $menu->add(Html::raw('<li class="header">DASHBOARD</li>'));
-            $menu->link('/dashboard/demo', 'Demo')->setActive('/dashboard/demo');
-        }
+
     }
 
 }
