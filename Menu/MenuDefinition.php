@@ -20,7 +20,9 @@ class MenuDefinition
     public function __construct()
     {
         $this->items = collect();
-        $this->items->push($this->getDemoMenu());
+        if(env('DEMO_DASHBOARD')) {
+            $this->items->push($this->getDemoMenu());
+        }
     }
 
     /**
